@@ -1,6 +1,6 @@
 USE ROLE ACCOUNTADMIN;
 
-CREATE WAREHOUSE IF NOT EXISTS QUICKSTART_WH WAREHOUSE_SIZE = XSMALL, AUTO_SUSPEND = 300, AUTO_RESUME= TRUE;
+CREATE WAREHOUSE IF NOT EXISTS QUICKSTART_WH WAREHOUSE_SIZE = XSMALL, AUTO_SUSPEND = 60, AUTO_RESUME= TRUE;
 
 
 -- Separate database for git repository
@@ -10,14 +10,14 @@ CREATE DATABASE IF NOT EXISTS QUICKSTART_COMMON;
 -- API integration is needed for GitHub integration
 CREATE OR REPLACE API INTEGRATION git_api_integration
   API_PROVIDER = git_https_api
-  API_ALLOWED_PREFIXES = ('https://github.com/<insert GitHub username>') -- INSERT YOUR GITHUB USERNAME HERE
+  API_ALLOWED_PREFIXES = ('https://github.com/dwayne-croteau') -- INSERT YOUR GITHUB USERNAME HERE
   ENABLED = TRUE;
 
 
 -- Git repository object is similar to external stage
 CREATE OR REPLACE GIT REPOSITORY quickstart_common.public.quickstart_repo
   API_INTEGRATION = git_api_integration
-  ORIGIN = '<insert URL of forked GitHub repo>'; -- INSERT URL OF FORKED REPO HERE
+  ORIGIN = 'https://github.com/dwayne-croteau/sfguide-getting-started-with-snowflake-devops'; -- INSERT URL OF FORKED REPO HERE
 
 
 CREATE OR REPLACE DATABASE QUICKSTART_PROD;
