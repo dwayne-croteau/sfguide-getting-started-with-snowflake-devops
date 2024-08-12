@@ -4,7 +4,7 @@ CREATE WAREHOUSE IF NOT EXISTS QUICKSTART_WH WAREHOUSE_SIZE = XSMALL, AUTO_SUSPE
 
 
 -- Separate database for git repository
-CREATE DATABASE IF NOT EXISTS QUICKSTART_COMMON;
+CREATE DATABASE IF NOT EXISTS QUICKSTART_{{environment}};
 
 
 -- API integration is needed for GitHub integration
