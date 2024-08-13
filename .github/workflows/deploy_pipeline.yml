@@ -51,3 +51,4 @@ jobs:
             "@${REPO_NAME}/branches/${BRANCH_NAME}/deploy_parametrized_pipeline.sql" \
             -D "environment='${ENVIRONMENT}'" \
             -D "retention_time=${RETENTION_TIME}"
+g
