@@ -4,7 +4,7 @@ CREATE WAREHOUSE IF NOT EXISTS QUICKSTART_WH WAREHOUSE_SIZE = XSMALL, AUTO_SUSPE
 
 
 -- Separate database for git repository
-CREATE DATABASE IF NOT EXISTS QUICKSTART_{{environment}};
+CREATE DATABASE IF NOT EXISTS QUICKSTART_COMMON;
 
 
 -- API integration is needed for GitHub integration
@@ -20,7 +20,7 @@ CREATE OR REPLACE GIT REPOSITORY quickstart_common.public.quickstart_repo
   ORIGIN = 'https://github.com/dwayne-croteau/sfguide-getting-started-with-snowflake-devops'; -- INSERT URL OF FORKED REPO HERE
 
 
-CREATE OR REPLACE DATABASE QUICKSTART_PROD;
+CREATE OR REPLACE DATABASE QUICKSTART_{{environment}};
 
 
 -- To monitor data pipeline's completion
