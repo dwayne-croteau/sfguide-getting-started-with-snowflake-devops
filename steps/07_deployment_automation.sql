@@ -10,4 +10,4 @@ use role accountadmin;
 -- should return 0 (due to deploy_pipeline_dev.yml)
 show parameters like 'data_retention_time_in_days' in table quickstart_dev.gold.vacation_spots;
 -- should return 1 (due to deploy_pipeline_dev.yml)
-show parameters like 'data_retention_time_in_days' in table quickstart_prod.gold.vacation_spots;
+show parameters like 'data_retention_time_in_days' in table QUICKSTART_{{environment}}.gold.vacation_spots;
